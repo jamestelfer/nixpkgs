@@ -9,4 +9,4 @@ permissions:
 
 jobs:
   conventional-pr-title:
-    uses: jamestelfer/.github/.github/workflows/conventional-pr-title.yml@main
+    uses: chinmina/.github/.github/workflows/conventional-pr-title.yml@verified-actions
