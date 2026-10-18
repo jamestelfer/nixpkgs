@@ -34,7 +34,7 @@ Without flakes, install from `default.nix`:
 nix-env -f https://github.com/jamestelfer/nixpkgs/archive/main.tar.gz -iA <tool>
 ```
 
-The flake exposes `x86_64-linux`, `aarch64-linux` and `aarch64-darwin`. nixpkgs 26.11 dropped `x86_64-darwin`; on an older nixpkgs, use the overlay or `default.nix` instead.
+The flake exposes `x86_64-linux`, `aarch64-linux`, `x86_64-darwin` and `aarch64-darwin`, built from nixpkgs 26.05.
 
 ## How packages arrive
 
