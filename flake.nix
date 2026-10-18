@@ -8,18 +8,29 @@
   outputs =
     { self, nixpkgs }:
     let
-      # The platforms release automation builds archives for. nixpkgs 26.05 is
+      inherit (nixpkgs) lib;
+      # Every platform goreleaser's nix publisher can emit. nixpkgs 26.05 is
       # the last release supporting x86_64-darwin; drop it when moving past it.
       systems = [
         "x86_64-linux"
         "aarch64-linux"
+        "i686-linux"
+        "armv6l-linux"
+        "armv7l-linux"
         "x86_64-darwin"
         "aarch64-darwin"
       ];
-      forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f nixpkgs.legacyPackages.${system});
+      forAllSystems = f: lib.genAttrs systems (system: f nixpkgs.legacyPackages.${system});
     in
     {
-      packages = forAllSystems (pkgs: import ./default.nix { inherit pkgs; });
+      # Projects release different platforms, so each system only lists the
+      # tools whose recipe (meta.platforms) has an archive for it.
+      packages = forAllSystems (
+        pkgs:
+        lib.filterAttrs (_: pkg: lib.meta.availableOn pkgs.stdenv.hostPlatform pkg) (
+          import ./default.nix { inherit pkgs; }
+        )
+      );
       overlays.default = final: _prev: import ./default.nix { pkgs = final; };
     };
 }

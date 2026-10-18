@@ -34,7 +34,7 @@ Without flakes, install from `default.nix`:
 nix-env -f https://github.com/jamestelfer/nixpkgs/archive/main.tar.gz -iA <tool>
 ```
 
-The flake exposes `x86_64-linux`, `aarch64-linux`, `x86_64-darwin` and `aarch64-darwin`, built from nixpkgs 26.05.
+Projects release different platforms. The flake lists each tool only under the systems its release has an archive for, built from nixpkgs 26.05.
 
 ## How packages arrive
 
