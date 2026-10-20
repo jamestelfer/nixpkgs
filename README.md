@@ -42,6 +42,8 @@ Each project's goreleaser `nix:` publisher commits `pkgs/<tool>/default.nix` to 
 
 `flake.nix` and `default.nix` expose every directory under `pkgs/`, so a new tool needs no edit here. Nothing runs at publish time: Nix evaluates the flake when a user installs from it.
 
+A recipe can depend on another package in this repository. List it under the goreleaser `nix:` block's `dependencies` and the recipe's wrapper puts it on the tool's PATH. Sandy does this with imds-broker. Publish the dependency first: if a recipe names a package that isn't here yet, the flake stops evaluating for every tool.
+
 The `nixpkgs` flake input only supplies the build helpers the recipes use. Nothing here is published to nixpkgs itself.
 
 Do not edit files under `pkgs/` by hand: the next release overwrites them.

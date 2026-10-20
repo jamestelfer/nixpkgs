@@ -31,6 +31,6 @@
           import ./default.nix { inherit pkgs; }
         )
       );
-      overlays.default = final: _prev: import ./default.nix { pkgs = final; };
+      overlays.default = final: _prev: import ./default.nix { pkgs = final; inherit lib; };
     };
 }
