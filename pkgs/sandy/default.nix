@@ -13,22 +13,22 @@
 let
   inherit (stdenvNoCC.hostPlatform) system;
   shaMap = {
-    x86_64-linux = "1rv3qqgp7iqg6rz0rx7kqm5jhqmasy5jfs3r5ixk8q3nmqbmnz2a";
-    aarch64-linux = "11bcwmkmrmym466p46vbgxp0zca9wqb752hl299zqw9i4flj2169";
-    x86_64-darwin = "0dxb1fj6r10jdylj1gy6x0swl73xwk2vzwl5ki3g1wfb6w0z9dzs";
-    aarch64-darwin = "1al79dmiss8v0zgj303rfl08j1h3vwrjhv1sicmjrbbq6g1sy94w";
+    x86_64-linux = "0y6zp0x5rd46lyrwzkclh2wzxglmprbgva729w25jp8fslkyzbxd";
+    aarch64-linux = "0dy83wzfygrf5hfndp2dx96z0jn06xim4m7qg38vznzq9vbjr1q2";
+    x86_64-darwin = "16xy6x5yf7l4709lw77r489gknjzkv6kxddvwpv3sg2za3vdffkq";
+    aarch64-darwin = "188shl7r3rnh88qipndn53j5pqmyfanzppx1njp2k5zkdfhrhc01";
   };
 
   urlMap = {
-    x86_64-linux = "https://github.com/jamestelfer/sandy/releases/download/v0.13.0/sandy-0.13.0-linux-x64.tar.gz";
-    aarch64-linux = "https://github.com/jamestelfer/sandy/releases/download/v0.13.0/sandy-0.13.0-linux-arm64.tar.gz";
-    x86_64-darwin = "https://github.com/jamestelfer/sandy/releases/download/v0.13.0/sandy-0.13.0-darwin-x64.tar.gz";
-    aarch64-darwin = "https://github.com/jamestelfer/sandy/releases/download/v0.13.0/sandy-0.13.0-darwin-arm64.tar.gz";
+    x86_64-linux = "https://github.com/jamestelfer/sandy/releases/download/v0.14.0/sandy-0.14.0-linux-x64.tar.gz";
+    aarch64-linux = "https://github.com/jamestelfer/sandy/releases/download/v0.14.0/sandy-0.14.0-linux-arm64.tar.gz";
+    x86_64-darwin = "https://github.com/jamestelfer/sandy/releases/download/v0.14.0/sandy-0.14.0-darwin-x64.tar.gz";
+    aarch64-darwin = "https://github.com/jamestelfer/sandy/releases/download/v0.14.0/sandy-0.14.0-darwin-arm64.tar.gz";
   };
 in
 stdenvNoCC.mkDerivation {
   pname = "sandy";
-  version = "0.13.0";
+  version = "0.14.0";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
