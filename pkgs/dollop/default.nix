@@ -9,22 +9,22 @@
 let
   inherit (stdenvNoCC.hostPlatform) system;
   shaMap = {
-    x86_64-linux = "01nxl040lwwgld68fzf4wpva42w2dwplzacvky9i0981lq5rpgiq";
-    aarch64-linux = "0861ihp2bgmhcn0pv2n7vc773s7l51m3ah7l2mfzd4dbsagyzqfx";
-    x86_64-darwin = "0xmbi456dd68pjmmq62asrdiq7fmd5y74fsq2dfm7havc99bfj8g";
-    aarch64-darwin = "1hi6m2jzjlpq6ia931cnmrkn2yjvcq79rh03q2fldhrzbsmqlry9";
+    x86_64-linux = "0agrj7hc32wcndd4sa6knwcfv3zq3hficw8n78g4qp13n7xg3dx6";
+    aarch64-linux = "1larq93jbkvswvi08l8rsggb1lq6wjg2w00a5bviz45hf8xprgx2";
+    x86_64-darwin = "17l9k361cxskr5klvqknxbl9q33qiicalj8zahbsnnczg25l27n4";
+    aarch64-darwin = "0r3yknvq3kxm28vly3jbdv1r7zizz6r4r96w9kqa1kpvb12cpvnm";
   };
 
   urlMap = {
-    x86_64-linux = "https://github.com/jamestelfer/dollop/releases/download/v1.21.0/dollop_linux_amd64.tar.gz";
-    aarch64-linux = "https://github.com/jamestelfer/dollop/releases/download/v1.21.0/dollop_linux_arm64.tar.gz";
-    x86_64-darwin = "https://github.com/jamestelfer/dollop/releases/download/v1.21.0/dollop_darwin_amd64.tar.gz";
-    aarch64-darwin = "https://github.com/jamestelfer/dollop/releases/download/v1.21.0/dollop_darwin_arm64.tar.gz";
+    x86_64-linux = "https://github.com/jamestelfer/dollop/releases/download/v1.22.0/dollop_linux_amd64.tar.gz";
+    aarch64-linux = "https://github.com/jamestelfer/dollop/releases/download/v1.22.0/dollop_linux_arm64.tar.gz";
+    x86_64-darwin = "https://github.com/jamestelfer/dollop/releases/download/v1.22.0/dollop_darwin_amd64.tar.gz";
+    aarch64-darwin = "https://github.com/jamestelfer/dollop/releases/download/v1.22.0/dollop_darwin_arm64.tar.gz";
   };
 in
 stdenvNoCC.mkDerivation {
   pname = "dollop";
-  version = "1.21.0";
+  version = "1.22.0";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
