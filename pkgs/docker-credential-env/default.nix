@@ -9,22 +9,22 @@
 let
   inherit (stdenvNoCC.hostPlatform) system;
   shaMap = {
-    x86_64-linux = "14xnpfy5y51jibc20j9nh70zm7g45ff6lslfnkxnaqsq31rvzi9c";
-    aarch64-linux = "1dnhdyj8k68dzgvk2j9jdwm1sb2f494b0y0c52in32b68gqkwbll";
-    x86_64-darwin = "0jjbhk1b9y4igrsnwm96616xvp6h4ac8qgh9j15g2gcyqg288r8l";
-    aarch64-darwin = "1pwbsmy27dssvfxbfav96y8kdvq4v80dxrpilk0q4ajgsy43pgq2";
+    x86_64-linux = "0gd9afn478mnmfk8g0bjxzqx4mmdxbzmr3ba5qr821w9yn459y21";
+    aarch64-linux = "1j3pb9bb4j9f9gz91bjwpv15fzjlg2h13s4cjqrqpp8pp93cngxg";
+    x86_64-darwin = "0dfj8fvdg5nls2skicn4vfn1cgjz6fp7wzbs5hmdmdzmgbbffczl";
+    aarch64-darwin = "0isxdvirlvm8k843gybm9jq1f1p9xhqvjibjd92cic0lvv1p5mcg";
   };
 
   urlMap = {
-    x86_64-linux = "https://github.com/jamestelfer/docker-credential-env/releases/download/v1.0.4/docker-credential-env_linux_amd64.tar.gz";
-    aarch64-linux = "https://github.com/jamestelfer/docker-credential-env/releases/download/v1.0.4/docker-credential-env_linux_arm64.tar.gz";
-    x86_64-darwin = "https://github.com/jamestelfer/docker-credential-env/releases/download/v1.0.4/docker-credential-env_darwin_amd64.tar.gz";
-    aarch64-darwin = "https://github.com/jamestelfer/docker-credential-env/releases/download/v1.0.4/docker-credential-env_darwin_arm64.tar.gz";
+    x86_64-linux = "https://github.com/jamestelfer/docker-credential-env/releases/download/v1.0.5/docker-credential-env_linux_amd64.tar.gz";
+    aarch64-linux = "https://github.com/jamestelfer/docker-credential-env/releases/download/v1.0.5/docker-credential-env_linux_arm64.tar.gz";
+    x86_64-darwin = "https://github.com/jamestelfer/docker-credential-env/releases/download/v1.0.5/docker-credential-env_darwin_amd64.tar.gz";
+    aarch64-darwin = "https://github.com/jamestelfer/docker-credential-env/releases/download/v1.0.5/docker-credential-env_darwin_arm64.tar.gz";
   };
 in
 stdenvNoCC.mkDerivation {
   pname = "docker-credential-env";
-  version = "1.0.4";
+  version = "1.0.5";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
