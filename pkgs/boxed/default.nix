@@ -9,22 +9,22 @@
 let
   inherit (stdenvNoCC.hostPlatform) system;
   shaMap = {
-    x86_64-linux = "1a0anallifhbki2qarc4dgy9fl3zn8zzw6ar7xpg5mqi56aw60dy";
-    aarch64-linux = "0sw67mgxyvy0iqijw4kjdyd61k0vgdcfz09nirqzqvignkjq7wlf";
-    x86_64-darwin = "0fag1w2h3ih247q766wlz74fwi69nyn5r6fhwl9pfzhi78gw50ga";
-    aarch64-darwin = "1m20b0cx976zk3lk3ajkbjvb1ss8hwbiw1330v8dssqvq2n7s46x";
+    x86_64-linux = "099j8qbwms20qj1yvfy9kzdi2lf1i4bvs931zjxbg40g2zkcs0zw";
+    aarch64-linux = "080vgmy1ai77mli7cb4jwb0i1wii5vz118fih5vb3qs06fs2h4d1";
+    x86_64-darwin = "0klry3542jr067l22ijybzg8j50agn3znc25vb8ysba52q9knn54";
+    aarch64-darwin = "13zlnyd15s1zhlqmdj3iramfrwd81l7s5czvwamcvsscdhky45jm";
   };
 
   urlMap = {
-    x86_64-linux = "https://github.com/jamestelfer/boxed/releases/download/v1.3.2/boxed_linux_amd64.tar.gz";
-    aarch64-linux = "https://github.com/jamestelfer/boxed/releases/download/v1.3.2/boxed_linux_arm64.tar.gz";
-    x86_64-darwin = "https://github.com/jamestelfer/boxed/releases/download/v1.3.2/boxed_darwin_amd64.tar.gz";
-    aarch64-darwin = "https://github.com/jamestelfer/boxed/releases/download/v1.3.2/boxed_darwin_arm64.tar.gz";
+    x86_64-linux = "https://github.com/jamestelfer/boxed/releases/download/v1.3.3/boxed_linux_amd64.tar.gz";
+    aarch64-linux = "https://github.com/jamestelfer/boxed/releases/download/v1.3.3/boxed_linux_arm64.tar.gz";
+    x86_64-darwin = "https://github.com/jamestelfer/boxed/releases/download/v1.3.3/boxed_darwin_amd64.tar.gz";
+    aarch64-darwin = "https://github.com/jamestelfer/boxed/releases/download/v1.3.3/boxed_darwin_arm64.tar.gz";
   };
 in
 stdenvNoCC.mkDerivation {
   pname = "boxed";
-  version = "1.3.2";
+  version = "1.3.3";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
