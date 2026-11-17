@@ -9,22 +9,22 @@
 let
   inherit (stdenvNoCC.hostPlatform) system;
   shaMap = {
-    x86_64-linux = "1w47w1kd1siwnnfwqhssjaffc314bscl5z7zaq59586bfw9mb4pr";
-    aarch64-linux = "1j5wf4yrb4cx8nkzljrl5ca8z6sc8ww04w42ixv3vyg8v888sz2l";
-    x86_64-darwin = "1ymavz6zvslszb23f6xgwpjiypz0v43kd7vv39a0984q81vq7vac";
-    aarch64-darwin = "1r3jnw09c27j9mhn6dygvxshxdx4b7ks72chj62hzpjvymvlbil4";
+    x86_64-linux = "0ka846m1918fqqpyyyds3d1bivc8j7dn1ivjgcxjn8lqs2z7i011";
+    aarch64-linux = "0488jr65v9gq9dp4fjggk1m4gkl3izlpid27ncvf0nrv9idi75f5";
+    x86_64-darwin = "1dr4ibkglg1wkgyvi0lxdafxcdb182adqdbn2jsbmj31giyga9p5";
+    aarch64-darwin = "1769kj5cszbfhbji2gvz8zl96g9sszypl2w0g6zj52r0vqk01qmi";
   };
 
   urlMap = {
-    x86_64-linux = "https://github.com/jamestelfer/imds-broker/releases/download/v0.5.2/imds-broker_linux_amd64.tar.gz";
-    aarch64-linux = "https://github.com/jamestelfer/imds-broker/releases/download/v0.5.2/imds-broker_linux_arm64.tar.gz";
-    x86_64-darwin = "https://github.com/jamestelfer/imds-broker/releases/download/v0.5.2/imds-broker_darwin_amd64.tar.gz";
-    aarch64-darwin = "https://github.com/jamestelfer/imds-broker/releases/download/v0.5.2/imds-broker_darwin_arm64.tar.gz";
+    x86_64-linux = "https://github.com/jamestelfer/imds-broker/releases/download/v0.6.0/imds-broker_linux_amd64.tar.gz";
+    aarch64-linux = "https://github.com/jamestelfer/imds-broker/releases/download/v0.6.0/imds-broker_linux_arm64.tar.gz";
+    x86_64-darwin = "https://github.com/jamestelfer/imds-broker/releases/download/v0.6.0/imds-broker_darwin_amd64.tar.gz";
+    aarch64-darwin = "https://github.com/jamestelfer/imds-broker/releases/download/v0.6.0/imds-broker_darwin_arm64.tar.gz";
   };
 in
 stdenvNoCC.mkDerivation {
   pname = "imds-broker";
-  version = "0.5.2";
+  version = "0.6.0";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
